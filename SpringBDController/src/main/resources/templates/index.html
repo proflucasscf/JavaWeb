@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>CRUD Aluno</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		</style>
+	</head>
+	<body>
+		<a href="insert">Inserir novo</a> | <a href="read">Ver todos</a> <br> <br>
+		<table style="width:100%">
+			<tr>
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>E-mail</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="aluno : ${alunos}">
+			    <td th:text="${aluno.id}"></td>
+			    <td th:text="${aluno.name}"></td>
+			    <td th:text="${aluno.email}"></td>
+			    <td><a th:href="@{/delete(id=${aluno.id})}">Deletar</a></td>
+			    <td><a th:href="@{/update(id=${aluno.id})}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

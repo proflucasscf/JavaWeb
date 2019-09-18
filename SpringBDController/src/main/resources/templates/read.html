@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>Ver todos</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body th:each="aluno : ${alunos}">
+		<span th:text="${'ID: ' + aluno.id}"></span><br>
+		<span th:text="${'Nome: ' + aluno.name}"></span><br>
+		<span th:text="${'Email: ' + aluno.email}"></span><br>
+		<br>
+		<br>
+	</body>
+</html>
