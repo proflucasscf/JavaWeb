@@ -16,6 +16,7 @@
 			    <th>ID</td>
 			    <th>Nome</td>
 			    <th>E-mail</td>
+			    <th>Faculdade</td>
 			    <th>Excluir?</td>
 			    <th>Alterar?</td>
 			</tr>
@@ -23,6 +24,8 @@
 			    <td th:text="${aluno.id}"></td>
 			    <td th:text="${aluno.name}"></td>
 			    <td th:text="${aluno.email}"></td>
+			    <!-- <td th:text="${aluno.faculdade.name}"></td> -->
+			    <td th:text="${aluno.faculdade_id}"></td>
 			    <td><a th:href="@{/delete(id=${aluno.id})}">Deletar</a></td>
 			    <td><a th:href="@{/update(id=${aluno.id})}">Alterar</a></td>
 			</tr>

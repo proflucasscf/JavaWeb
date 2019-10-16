@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cotemig.SpringBDController.model.Aluno;
 import com.cotemig.SpringBDController.service.AlunoService;
+import com.cotemig.SpringBDController.service.FaculdadeService;
 
 @Controller
 public class SpringBdController {
@@ -20,13 +21,22 @@ public class SpringBdController {
 	@Autowired
 	private AlunoService alunoService;
 	
+	@Autowired
+	private FaculdadeService faculdadeService;
+	
 	@RequestMapping(value = "/insert", method = RequestMethod.GET)
     public ModelAndView insert() {
-        return new ModelAndView("insert", "aluno", new Aluno());
+		
+        ModelAndView mav = new ModelAndView("insert");
+        
+        mav.addObject("aluno", new Aluno());
+        mav.addObject("faculdades", faculdadeService.getAllFaculdades());
+        
+        return mav;
     }
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public String submitInsert(@Valid @ModelAttribute("aluno")Aluno aluno, 
+    public String submitInsert(@Valid @ModelAttribute("aluno")Aluno aluno,
       BindingResult result, ModelMap model) {
         
 		if (result.hasErrors()) {

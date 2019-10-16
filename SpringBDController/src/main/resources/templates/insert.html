@@ -11,6 +11,18 @@
   			<br>
   			Email Aluno:<br>
   			<input type="text" name="email"><br>
+  			<br>
+  			Faculdade:<br>
+  			
+  			<!--
+  			<select th:field="*{aluno.faculdade}">
+  				<option th:each="f : ${faculdades}" th:value="${f.id}" th:text="${f.name}"></option>
+			</select>
+			-->
+			
+			<select name="faculdade_id">
+  				<option th:each="f : ${faculdades}" th:value="${f.id}" th:text="${f.name}"></option>
+			</select>
   			
   			<input type="submit" value="Inserir">
 		</form>

@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno {
@@ -14,7 +17,13 @@ public class Aluno {
     private String name;
 
     private String email;
-
+    
+    //@ManyToOne
+    //@JoinColumn(name="faculdade_id", nullable=false)
+    //private Faculdade faculdade;
+    
+    private Integer faculdade_id;
+    
 	public Integer getId() {
 		return id;
 	}
@@ -38,4 +47,20 @@ public class Aluno {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Integer getFaculdade_id() {
+		return faculdade_id;
+	}
+
+	public void setFaculdade_id(Integer faculdade_id) {
+		this.faculdade_id = faculdade_id;
+	}
+
+	/*public Faculdade getFaculdade() {
+		return faculdade;
+	}
+
+	public void setFaculdade(Faculdade faculdade) {
+		this.faculdade = faculdade;
+	}*/
 }
